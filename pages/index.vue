@@ -5,9 +5,10 @@
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quia totam delectus illo natus nisi iure
             omnis maiores perspiciatis pariatur officia nulla animi ipsam, velit ullam porro facere eveniet. Expedita!
         </h1>
-        <button class="btn btn-warning"  @click="Mute()">
+        <button class="btn btn-warning d-flex flex-row"  @click="Mute()">
             <i :class="{'bi bi-volume-mute-fill': is_muted == false, 'bi bi-volume-up-fill': is_muted }"></i>
-            Som
+            <p class="m-0 px-1 py-0 " v-if="is_muted == false">Desativar Som</p>
+            <p class="m-0 px-1 py-0" v-else-if="is_muted">Ativar Som</p>
         </button>
 
     </div>

@@ -4,5 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
   modules: [
-  ]
+  ],
+  app: {
+    header: {
+      link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }]
+    },
+  },
 })
