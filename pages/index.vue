@@ -1,9 +1,10 @@
-<template>
+<template >
     
-    <video :key="played" autoplay v-bind:muted="is_muted" v-bind:src="playing" @ended="playing = videos[Math.floor(Math.random() * videos.length)]"></video>
-    <div class="content">
+    <video :key="played" autoplay loop v-bind:muted="is_muted" v-bind:src="playing"></video>
+    <div data-bs-theme="dark" class="content">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quia totam delectus illo natus nisi iure omnis maiores perspiciatis pariatur officia nulla animi ipsam, velit ullam porro facere eveniet. Expedita!</h1>
         <button class="btn btn-warning" @click="is_muted = !is_muted">
-            <i class="bi bi-volume-mute-fill"></i>
+           habilitar Som
         </button>
     </div>
 
@@ -20,7 +21,7 @@
             ]
 
             const is_muted = ref(true)
-            const playing = ref(videos[Math.floor(Math.random() * videos.length)])
+            const playing  = ref(videos[Math.floor(Math.random() * videos.length)])
             const played = ref(0)
 
             console
@@ -49,6 +50,7 @@
 </script>
 
 <style lang="scss">
+    @use "bootstrap";
     video{
         position: fixed;
         top:0;
