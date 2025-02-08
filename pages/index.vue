@@ -1,15 +1,39 @@
 <template>
     <video autoplay loop ref="bg_video" v-bind:muted="is_muted" :class="{ normal: is_muted == false }"
         v-bind:src="playing"></video>
-    <div data-bs-theme="dark" class="content">
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quia totam delectus illo natus nisi iure
-            omnis maiores perspiciatis pariatur officia nulla animi ipsam, velit ullam porro facere eveniet. Expedita!
+    <div data-bs-theme="dark" class="content d-flex flex-column ">
+        <h1 class="piox text-center white-shadow">
+            Corais Pio X
         </h1>
-        <button class="btn btn-warning d-flex flex-row"  @click="Mute()">
-            <i :class="{'bi bi-volume-mute-fill': is_muted == false, 'bi bi-volume-up-fill': is_muted }"></i>
-            <p class="m-0 px-1 py-0 " v-if="is_muted == false">Desativar Som</p>
-            <p class="m-0 px-1 py-0" v-else-if="is_muted">Ativar Som</p>
-        </button>
+
+        <div class="d-flex align-items-center justify-content-center my-5 flex-wrap flex-lg-row flex-column">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <img class="img rounded" src="../public/logo.png">
+                <h2 style="--bs-bg-opacity: .8;" class="infantil my-1 mx-5 px-3 py-2 text-center text-bg-light rounded-pill">Infantil</h2>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="p-2" style="height: 9rem; background-color: white;">
+                    <p>Desenho da Kelly</p>
+                </div>
+                <h2 style="--bs-bg-opacity: .8;" class="juvenil my-1 mx-5 px-3 py-2 pt-3 text-center text-bg-light rounded-pill">Infanto-Juvenil</h2>
+            </div>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <img class="img rounded" src="../public/logo.png">
+                <h2 style="--bs-bg-opacity: .8;" class="piox my-1 mx-5 px-3 py-2 text-center text-bg-light rounded-pill">Adulto</h2>
+            </div>
+        </div>
+
+        <div class="align-self-center">
+            <button class="btn btn-warning d-flex flex-row" @click="Mute()">
+                <i :class="{ 'bi bi-volume-mute-fill': is_muted == false, 'bi bi-volume-up-fill': is_muted }"></i>
+                <p class="m-0 px-1 py-0 " v-if="is_muted == false">Desativar Som</p>
+                <p class="m-0 px-1 py-0" v-else-if="is_muted">Ativar Som</p>
+            </button>
+        </div>
+
+        <a href="https://piox.com.br/" class="text-center fixed-bottom text-info h4 text-decoration-none">Site Completo do <span class="piox text-info">Pio X</span></a>
+
+
 
     </div>
 
@@ -126,9 +150,21 @@ video {
 
 
 .content {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     padding: 20px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.img{
+    max-width: 11rem;
+}
+
+.footer-geral{
+    position: fixed;
+    bottom: 0;
+    
 }
 </style>
