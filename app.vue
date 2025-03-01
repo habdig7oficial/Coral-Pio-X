@@ -13,5 +13,9 @@
 </style>
 
 <script lang="ts">
-  //import "bootstrap/js/index.esm"
+  import "bootstrap/js/index.esm"
+
+  export default{
+    
+  }
 </script>
