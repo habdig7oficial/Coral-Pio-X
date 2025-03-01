@@ -1,35 +1,26 @@
 <template>
     <video autoplay loop ref="bg_video" v-bind:muted="is_muted" :class="{ normal: is_muted == false }"
         v-bind:src="playing"></video>
+        
     <div data-bs-theme="dark" class="content d-flex flex-column ">
         <h1 class="piox text-center white-shadow">
             Corais Pio X
         </h1>
 
-        <div class="d-flex align-items-center justify-content-center my-5 flex-wrap flex-lg-row flex-column">
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <img class="img rounded" src="../public/logo.png">
-                <h2 style="--bs-bg-opacity: .8;" class="infantil my-1 mx-5 px-3 py-2 text-center text-bg-light rounded-pill">Infantil</h2>
-            </div>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="p-2" style="height: 9rem; background-color: white;">
-                    <p>Desenho da Kelly</p>
-                </div>
-                <h2 style="--bs-bg-opacity: .8;" class="juvenil my-1 mx-5 px-3 py-2 pt-3 text-center text-bg-light rounded-pill">Infanto-Juvenil</h2>
-            </div>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <img class="img rounded" src="../public/logo.png">
-                <h2 style="--bs-bg-opacity: .8;" class="piox my-1 mx-5 px-3 py-2 text-center text-bg-light rounded-pill">Adulto</h2>
-            </div>
+        <div class="d-flex align-items-center justify-content-center my-3 flex-wrap flex-lg-row flex-column">
+            <Card text="Infantil" class="infantil my-sm-3" img="/images/logo.png" to="/infantil"></Card>
+            <Card text="Infanto-Juvenil" class="juvenil my-sm-3" img="/images/logo.png" to="/juvenil"></Card>
+            <Card text="Adulto" class="piox my-sm-3" img="/images/logo.png" to="/adulto"></Card>
         </div>
 
         <div class="align-self-center">
             <button class="btn btn-warning d-flex flex-row" @click="Mute()">
                 <i :class="{ 'bi bi-volume-mute-fill': is_muted == false, 'bi bi-volume-up-fill': is_muted }"></i>
-                <p class="m-0 px-1 py-0 " v-if="is_muted == false">Desativar Som</p>
-                <p class="m-0 px-1 py-0" v-else-if="is_muted">Ativar Som</p>
+                Ouça Agora!
             </button>
         </div>
+
+        <div class="m-4"></div>
 
         <a href="https://piox.com.br/" class="text-center fixed-bottom text-info h4 text-decoration-none">Site Completo do <span class="piox text-info">Pio X</span></a>
 
@@ -40,6 +31,8 @@
 </template>
 
 <script lang="ts">
+import Card from '~/components/Card.vue';
+
 export default {
     setup() {
         let videos = [
@@ -167,4 +160,21 @@ video {
     bottom: 0;
     
 }
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0
+}
 </style>
+
+<!--            <a href="/juvenil" class="d-flex flex-column align-items-center justify-content-center text-decoration-none">
+                <div class="p-2" style="height: 9rem; background-color: white;">
+                    <p>Desenho da Kelly</p>
+                </div>
+                <h2 style="--bs-bg-opacity: .8;" class="juvenil my-1 mx-5 px-3 py-2 pt-3 text-center text-bg-light rounded-pill">Infanto-Juvenil</h2>
+            </a>-->
